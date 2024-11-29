@@ -18,11 +18,9 @@ function Signin() {
 
         const { name, email } = res.data;
         setUserData(res.data);
-
-        // Send user data to backend to store or validate
+        
         await axios.post("http://localhost:8081/signin", { name, email });
 
-        // Set session in frontend (if necessary, or handle via cookies)
         localStorage.setItem("user", JSON.stringify(res.data));
 
         // Navigate to home page
