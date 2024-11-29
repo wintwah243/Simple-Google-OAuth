@@ -5,13 +5,11 @@ function Home() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Get user data from localStorage or session
     const storedUser = JSON.parse(localStorage.getItem('user'));
 
     if (storedUser) {
       setUser(storedUser);
     } else {
-      // Alternatively, fetch user data from the backend if session exists
       axios.get("http://localhost:8081/")
         .then(res => {
           if (res.data.valid) {
